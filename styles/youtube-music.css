@@ -1,0 +1,47 @@
+/* YouTube Music: "open the app" dialogs, banners and upsells, and the site's bottom bar. */
+ytmusic-mealbar-promo-renderer,
+ytmusic-statement-banner-renderer,
+ytmusic-app-promo-renderer,
+ytmusic-upsell-dialog-renderer,
+tp-yt-paper-dialog:has(ytmusic-mealbar-promo-renderer),
+tp-yt-paper-dialog:has(ytmusic-upsell-dialog-renderer),
+tp-yt-iron-overlay-backdrop:has(+ tp-yt-paper-dialog ytmusic-upsell-dialog-renderer),
+ytmusic-pivot-bar-renderer,
+ytm-pivot-bar-renderer,
+.ytmusic-open-app-button,
+ytmusic-mobile-open-app-button { display: none !important; }
+
+/* YouTube Music's own top bar: the native navigation bar replaces it. */
+ytmusic-nav-bar { display: none !important; }
+ytmusic-app-layout, ytmusic-app { --ytmusic-nav-bar-height: 0px !important; }
+#content.ytmusic-app, ytmusic-browse-response { padding-top: 0 !important; margin-top: 0 !important; }
+/* The chip row pads itself for the hidden top bar; under the native bar it sits close, like YouTube's. */
+ytmusic-section-list-renderer #header ytmusic-chip-cloud-chip-renderer { padding-top: 8px !important; }
+
+/* The app's mini player replaces YouTube Music's own bar at the bottom while the player page is closed
+   (youtube-music.js marks the page while it's open). The bar is `ytmusic-player-bar` or (signed in, newer)
+   `ytmusic-miniplayer`; every copy outside the player page goes, whatever its slot or attributes, and so does the
+   room the layout keeps for it at the bottom. */
+html:not(.abt-ytm-page-open) ytmusic-app-layout > [slot="player-bar"],
+html:not(.abt-ytm-page-open) ytmusic-player-bar:not(ytmusic-player-page *),
+html:not(.abt-ytm-page-open) ytmusic-miniplayer:not(ytmusic-player-page *),
+html:not(.abt-ytm-page-open) #player-bar-background { display: none !important; }
+html:not(.abt-ytm-page-open) ytmusic-app-layout { --ytmusic-player-bar-height: 0px !important; }
+
+/* Its docked artwork too; it holds the audio, so it's made invisible rather than removed. */
+html:not(.abt-ytm-page-open) ytmusic-player#player { opacity: 0 !important; pointer-events: none !important; }
+
+/* Layouts that scroll inside a full-height box (youtube-music.js marks them) run under the app's bottom bars; the
+   box is padded by their height (`--abt-bottom-bars`, from the app) plus room for the mini player above them, so
+   its last items scroll clear of both. */
+html.abt-ytm-contained ytmusic-app-layout > [slot="content"] {
+  padding-bottom: calc(var(--abt-bottom-bars, 0px) + 72px) !important;
+  scroll-padding-bottom: var(--abt-bottom-bars, 0px);
+}
+
+/* No text selection or selection callouts, as in the native app: a hold is for menus and 2×, and a stray selection
+   got in the way of both. Fields where you type keep it. */
+html, body, body * { -webkit-user-select: none !important; user-select: none !important; -webkit-touch-callout: none !important; }
+input, textarea, [contenteditable="true"], [contenteditable=""], [contenteditable="plaintext-only"] {
+  -webkit-user-select: text !important; user-select: text !important; -webkit-touch-callout: default !important;
+}

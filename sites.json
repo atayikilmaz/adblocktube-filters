@@ -1,0 +1,629 @@
+{
+  "version": 1,
+  "sites": [
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "monogram": "Yt",
+      "homeURL": "https://m.youtube.com/",
+      "hosts": [
+        "youtube.com",
+        "youtu.be"
+      ],
+      "searchURLTemplate": "https://m.youtube.com/results?search_query={query}",
+      "scripts": [
+        "youtube-ads",
+        "youtube-playback",
+        "sponsorblock",
+        "dislikes",
+        "youtube-speed-hold",
+        "item-menus"
+      ],
+      "styles": [
+        "youtube",
+        "item-menus"
+      ],
+      "tabs": [
+        {
+          "id": "home",
+          "title": "Home",
+          "systemImage": "house",
+          "path": "/",
+          "image": "tab.home"
+        },
+        {
+          "id": "shorts",
+          "title": "Shorts",
+          "systemImage": "play.rectangle.on.rectangle",
+          "path": "/shorts",
+          "image": "tab.shorts"
+        },
+        {
+          "id": "subscriptions",
+          "title": "Subscriptions",
+          "systemImage": "play.square.stack",
+          "path": "/feed/subscriptions",
+          "image": "tab.subscriptions"
+        },
+        {
+          "id": "you",
+          "title": "You",
+          "systemImage": "person.crop.circle",
+          "path": "/feed/you"
+        }
+      ],
+      "browseScripts": [
+        "youtube-links"
+      ],
+      "playerScripts": [
+        "youtube-player",
+        "player-controls"
+      ],
+      "playerStyles": [
+        "youtube-player"
+      ],
+      "nativePlayer": true,
+      "appStoreID": "544007664",
+      "signIn": {
+        "url": "https://accounts.google.com/ServiceLogin?service=youtube&passive=true&continue=https%3A%2F%2Fm.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Dm%26next%3D%252F",
+        "cookie": "LOGIN_INFO"
+      }
+    },
+    {
+      "id": "youtube-music",
+      "name": "YouTube Music",
+      "shortName": "YT Music",
+      "monogram": "Ym",
+      "homeURL": "https://music.youtube.com/",
+      "hosts": [
+        "music.youtube.com"
+      ],
+      "searchURLTemplate": "https://music.youtube.com/search?q={query}",
+      "scripts": [
+        "youtube-ads",
+        "youtube-music",
+        "sponsorblock",
+        "item-menus"
+      ],
+      "styles": [
+        "youtube-music",
+        "item-menus"
+      ],
+      "tabs": [
+        {
+          "id": "home",
+          "title": "Home",
+          "systemImage": "house",
+          "path": "/",
+          "image": "tab.home"
+        },
+        {
+          "id": "explore",
+          "title": "Explore",
+          "systemImage": "safari",
+          "path": "/explore"
+        },
+        {
+          "id": "library",
+          "title": "Library",
+          "systemImage": "music.note.list",
+          "path": "/library"
+        }
+      ],
+      "appStoreID": "1017492454",
+      "signIn": {
+        "url": "https://accounts.google.com/ServiceLogin?service=youtube&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26next%3Dhttps%253A%252F%252Fmusic.youtube.com%252F",
+        "cookie": "LOGIN_INFO"
+      }
+    },
+    {
+      "id": "twitch",
+      "name": "Twitch",
+      "monogram": "Tw",
+      "homeURL": "https://m.twitch.tv/",
+      "hosts": [
+        "twitch.tv"
+      ],
+      "searchURLTemplate": "https://m.twitch.tv/search?term={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "460177396"
+    },
+    {
+      "id": "kick",
+      "name": "Kick",
+      "monogram": "Ki",
+      "homeURL": "https://kick.com/",
+      "hosts": [
+        "kick.com"
+      ],
+      "searchURLTemplate": "https://kick.com/search?query={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "6446202561"
+    },
+    {
+      "id": "rumble",
+      "name": "Rumble",
+      "monogram": "Ru",
+      "homeURL": "https://rumble.com/",
+      "hosts": [
+        "rumble.com"
+      ],
+      "searchURLTemplate": "https://rumble.com/search/video?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "1518427877"
+    },
+    {
+      "id": "vimeo",
+      "name": "Vimeo",
+      "monogram": "Vi",
+      "homeURL": "https://vimeo.com/",
+      "hosts": [
+        "vimeo.com"
+      ],
+      "searchURLTemplate": "https://vimeo.com/search?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "425194759"
+    },
+    {
+      "id": "dailymotion",
+      "name": "Dailymotion",
+      "monogram": "Dm",
+      "homeURL": "https://www.dailymotion.com/",
+      "hosts": [
+        "dailymotion.com"
+      ],
+      "searchURLTemplate": "https://www.dailymotion.com/search/{query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "336978041"
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok",
+      "monogram": "Tt",
+      "homeURL": "https://www.tiktok.com/",
+      "hosts": [
+        "tiktok.com"
+      ],
+      "searchURLTemplate": "https://www.tiktok.com/search?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "835599320"
+    },
+    {
+      "id": "instagram",
+      "name": "Instagram",
+      "monogram": "Ig",
+      "homeURL": "https://www.instagram.com/",
+      "hosts": [
+        "instagram.com"
+      ],
+      "searchURLTemplate": "https://www.instagram.com/explore/search/keyword/?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "389801252"
+    },
+    {
+      "id": "facebook",
+      "name": "Facebook",
+      "monogram": "Fb",
+      "homeURL": "https://m.facebook.com/",
+      "hosts": [
+        "facebook.com"
+      ],
+      "searchURLTemplate": "https://m.facebook.com/search/top/?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "284882215"
+    },
+    {
+      "id": "x",
+      "name": "X",
+      "monogram": "X",
+      "homeURL": "https://x.com/home",
+      "hosts": [
+        "x.com",
+        "twitter.com"
+      ],
+      "searchURLTemplate": "https://x.com/search?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "333903271"
+    },
+    {
+      "id": "threads",
+      "name": "Threads",
+      "monogram": "Th",
+      "homeURL": "https://www.threads.com/",
+      "hosts": [
+        "threads.com",
+        "threads.net"
+      ],
+      "searchURLTemplate": "https://www.threads.com/search?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "6446901002"
+    },
+    {
+      "id": "bluesky",
+      "name": "Bluesky",
+      "monogram": "Bs",
+      "homeURL": "https://bsky.app/",
+      "hosts": [
+        "bsky.app"
+      ],
+      "searchURLTemplate": "https://bsky.app/search?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "6444370199"
+    },
+    {
+      "id": "reddit",
+      "name": "Reddit",
+      "monogram": "Rd",
+      "homeURL": "https://www.reddit.com/",
+      "hosts": [
+        "reddit.com"
+      ],
+      "searchURLTemplate": "https://www.reddit.com/search/?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags",
+        "reddit"
+      ],
+      "tabs": [],
+      "appStoreID": "1064216828"
+    },
+    {
+      "id": "pinterest",
+      "name": "Pinterest",
+      "monogram": "Pi",
+      "homeURL": "https://www.pinterest.com/",
+      "hosts": [
+        "pinterest.com"
+      ],
+      "searchURLTemplate": "https://www.pinterest.com/search/pins/?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "429047995"
+    },
+    {
+      "id": "tumblr",
+      "name": "Tumblr",
+      "monogram": "Tb",
+      "homeURL": "https://www.tumblr.com/dashboard",
+      "hosts": [
+        "tumblr.com"
+      ],
+      "searchURLTemplate": "https://www.tumblr.com/search/{query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "305343404"
+    },
+    {
+      "id": "9gag",
+      "name": "9GAG",
+      "monogram": "9g",
+      "homeURL": "https://9gag.com/",
+      "hosts": [
+        "9gag.com"
+      ],
+      "searchURLTemplate": "https://9gag.com/search?query={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "545551605"
+    },
+    {
+      "id": "ifunny",
+      "name": "iFunny",
+      "monogram": "iF",
+      "homeURL": "https://ifunny.co/",
+      "hosts": [
+        "ifunny.co"
+      ],
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "429610587"
+    },
+    {
+      "id": "imgur",
+      "name": "Imgur",
+      "monogram": "Im",
+      "homeURL": "https://imgur.com/",
+      "hosts": [
+        "imgur.com"
+      ],
+      "searchURLTemplate": "https://imgur.com/search?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "639881495"
+    },
+    {
+      "id": "quora",
+      "name": "Quora",
+      "monogram": "Qu",
+      "homeURL": "https://www.quora.com/",
+      "hosts": [
+        "quora.com"
+      ],
+      "searchURLTemplate": "https://www.quora.com/search?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "456034437"
+    },
+    {
+      "id": "mastodon",
+      "name": "Mastodon",
+      "monogram": "Ma",
+      "homeURL": "https://mastodon.social/",
+      "hosts": [
+        "mastodon.social"
+      ],
+      "searchURLTemplate": "https://mastodon.social/search?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "1571998974"
+    },
+    {
+      "id": "linkedin",
+      "name": "LinkedIn",
+      "monogram": "in",
+      "homeURL": "https://www.linkedin.com/",
+      "hosts": [
+        "linkedin.com"
+      ],
+      "searchURLTemplate": "https://www.linkedin.com/search/results/all/?keywords={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "288429040"
+    },
+    {
+      "id": "soundcloud",
+      "name": "SoundCloud",
+      "monogram": "Sc",
+      "homeURL": "https://m.soundcloud.com/",
+      "hosts": [
+        "soundcloud.com"
+      ],
+      "searchURLTemplate": "https://m.soundcloud.com/search?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "336353151"
+    },
+    {
+      "id": "duolingo",
+      "name": "Duolingo",
+      "monogram": "Du",
+      "homeURL": "https://www.duolingo.com/learn",
+      "hosts": [
+        "duolingo.com"
+      ],
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "570060128"
+    },
+    {
+      "id": "busuu",
+      "name": "Busuu",
+      "monogram": "Bu",
+      "homeURL": "https://www.busuu.com/dashboard",
+      "hosts": [
+        "busuu.com"
+      ],
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "379968583"
+    },
+    {
+      "id": "babbel",
+      "name": "Babbel",
+      "monogram": "Ba",
+      "homeURL": "https://my.babbel.com/",
+      "hosts": [
+        "babbel.com"
+      ],
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "829587759"
+    },
+    {
+      "id": "memrise",
+      "name": "Memrise",
+      "monogram": "Me",
+      "homeURL": "https://app.memrise.com/",
+      "hosts": [
+        "memrise.com"
+      ],
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "635966718"
+    },
+    {
+      "id": "mondly",
+      "name": "Mondly",
+      "monogram": "Mo",
+      "homeURL": "https://app.mondly.com/",
+      "hosts": [
+        "mondly.com"
+      ],
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "987873536"
+    },
+    {
+      "id": "google",
+      "name": "Google",
+      "monogram": "G",
+      "homeURL": "https://www.google.com/",
+      "hosts": [
+        "www.google.com"
+      ],
+      "searchURLTemplate": "https://www.google.com/search?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "284815942"
+    },
+    {
+      "id": "duckduckgo",
+      "name": "DuckDuckGo",
+      "monogram": "Dd",
+      "homeURL": "https://duckduckgo.com/",
+      "hosts": [
+        "duckduckgo.com"
+      ],
+      "searchURLTemplate": "https://duckduckgo.com/?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "663592361"
+    },
+    {
+      "id": "brave",
+      "name": "Brave Search",
+      "monogram": "Br",
+      "homeURL": "https://search.brave.com/",
+      "hosts": [
+        "search.brave.com"
+      ],
+      "searchURLTemplate": "https://search.brave.com/search?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "1052879175"
+    },
+    {
+      "id": "bing",
+      "name": "Bing",
+      "monogram": "Bi",
+      "homeURL": "https://www.bing.com/",
+      "hosts": [
+        "bing.com"
+      ],
+      "searchURLTemplate": "https://www.bing.com/search?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "345323231"
+    },
+    {
+      "id": "yahoo",
+      "name": "Yahoo",
+      "monogram": "Y!",
+      "homeURL": "https://www.yahoo.com/",
+      "hosts": [
+        "yahoo.com"
+      ],
+      "searchURLTemplate": "https://search.yahoo.com/search?p={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "361071600"
+    },
+    {
+      "id": "ecosia",
+      "name": "Ecosia",
+      "monogram": "Ec",
+      "homeURL": "https://www.ecosia.org/",
+      "hosts": [
+        "ecosia.org"
+      ],
+      "searchURLTemplate": "https://www.ecosia.org/search?q={query}",
+      "scripts": [],
+      "styles": [
+        "generic-nags"
+      ],
+      "tabs": [],
+      "appStoreID": "670881887"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+/* YouTube (m.youtube.com): ads, app upsells, and YouTube's own header and bottom bar
+   (the native navigation bar and tab bar replace them). */
+ytm-mobile-topbar-renderer,
+ytm-pivot-bar-renderer,
+ad-slot-renderer,
+ytm-promoted-sparkles-web-renderer,
+ytm-promoted-video-renderer,
+ytm-companion-ad-renderer,
+ytm-companion-slot,
+ytm-paid-content-overlay-renderer,
+ytm-mealbar-promo-renderer,
+ytm-statement-banner-renderer,
+ytm-app-promo-renderer,
+.ytm-app-upsell,
+ytm-rich-item-renderer:has(ad-slot-renderer),
+ytm-item-section-renderer:has(ytm-promoted-sparkles-web-renderer),
+.video-ads,
+.ytp-ad-module { display: none !important; }
+ytm-app { padding-top: 0 !important; padding-bottom: 0 !important; }
+/* Sticky bars that sat under YouTube's header move to the top. */
+.chip-bar-contents, ytm-feed-filter-chip-bar-renderer, .sticky-player { top: 0 !important; }
+
+/* Long-press menus only where the app adds actions: on videos, while a video plays (Play Next / Add to Queue). */
+a, img { -webkit-touch-callout: none !important; -webkit-user-drag: none !important; }
+
+/* Feeds behave like an app, not a document: no text selection when long-pressing videos and links. */
+a, a *, ytm-app ytm-rich-item-renderer, ytm-app ytm-video-with-context-renderer {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+}
+
+/* The loading skeleton's placeholder header is white until YouTube's dark theme applies: a white band under our bar. */
+header.ghost-header { display: none !important; }
+
+/* YouTube's "Tap to unmute" box: videos already play with sound (youtube-playback.js). */
+.ytp-unmute { display: none !important; }
+
+/* Hide Recommendations (setting): related videos under the player. The Home feed's tab is removed by the app. */
+html.abt-no-recs ytm-item-section-renderer[section-identifier="related-items"],
+html.abt-no-recs ytm-single-column-watch-next-results-renderer ytm-reel-shelf-renderer { display: none !important; }
+
+/* Shorts: the player's own black backing hid the Short's preview frame (on the carousel item behind it) until the
+   video drew its first frame, flashing black on every swipe. Without it the preview stays until the video paints. */
+shorts-video .player-api, shorts-video #player.player-api { background: transparent !important; }
+
+/* No text selection or selection callouts, as in the native app: a hold is for menus and 2×, and a stray selection
+   got in the way of both. Fields where you type keep it. */
+html, body, body * { -webkit-user-select: none !important; user-select: none !important; -webkit-touch-callout: none !important; }
+input, textarea, [contenteditable="true"], [contenteditable=""], [contenteditable="plaintext-only"] {
+  -webkit-user-select: text !important; user-select: text !important; -webkit-touch-callout: default !important;
+}

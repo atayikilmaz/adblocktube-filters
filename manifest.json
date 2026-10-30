@@ -1,0 +1,110 @@
+{
+  "formatVersion": 1,
+  "version": 1793360553,
+  "files": [
+    {
+      "path": "rules/easylist.json",
+      "sha256": "cb30464062c6b0747367ac0a0ef060bedbbfa52263064a4f1fb94cedf25e4dd6"
+    },
+    {
+      "path": "rules/easyprivacy.json",
+      "sha256": "f80aad9170df9019391d1b321cc40e56808f15ecfadc4191c7d85355d934252c"
+    },
+    {
+      "path": "rules/youtube-ads.json",
+      "sha256": "386dc7a952165cc87e75032e47cb518613f1af585600945e93943e6ce694f736"
+    },
+    {
+      "path": "rules/youtube-shorts.json",
+      "sha256": "1272b7fedfed348144727ea3d21e713239610beeb194d627a66dc05e54d1503a"
+    },
+    {
+      "path": "scripts/dislikes.js",
+      "sha256": "54a80576fe9998da35e507dcf5f54ff603ebd72731f5d8cb9c7ff80badf54e40"
+    },
+    {
+      "path": "scripts/item-menus.js",
+      "sha256": "aee85ffa73fa30974679cfebd127a153b8c630fd76f07910aead7e3a40035e9f"
+    },
+    {
+      "path": "scripts/keep-visible.js",
+      "sha256": "f9a0a82bbc9fd3a51744b2183f4313305abe40de8912f8e8cc0d4170b810dd0c"
+    },
+    {
+      "path": "scripts/media-bridge.js",
+      "sha256": "c347b23ccbb4429e2551bbc32d0515849a1360557a973e9fc99c4faa10610ae0"
+    },
+    {
+      "path": "scripts/native-feel.js",
+      "sha256": "8cb54df8248c9f2bca5874c02a5483949afba1800f088da8c7826cacbc0cc815"
+    },
+    {
+      "path": "scripts/open-app-nags.js",
+      "sha256": "f6aec789d8bc65dffa522589dacb917c16a92cf3cdc7373155e9f459840e1177"
+    },
+    {
+      "path": "scripts/player-controls.js",
+      "sha256": "3e4289f74bfd4439c3f455b8ff0c383d6c13f7a69478c536dc6a4b75f7fad552"
+    },
+    {
+      "path": "scripts/sponsorblock.js",
+      "sha256": "d085a36873d9967ebda838acd9e6cfbf3ea7cf245fcf6521204095afff2fd9db"
+    },
+    {
+      "path": "scripts/youtube-ads.js",
+      "sha256": "539c7574efeb46357f519223502eaaeb39a6572a1f6fb773258cecb0aca58f65"
+    },
+    {
+      "path": "scripts/youtube-links.js",
+      "sha256": "48154f478a967fee924b42b49530309c44fc5c003a06519795ef4f0513b11453"
+    },
+    {
+      "path": "scripts/youtube-music.js",
+      "sha256": "a0fbf7c575fc457cdc15cd4fff47fcfc138f9c16b47cd91bcaa9671ddfd0709b"
+    },
+    {
+      "path": "scripts/youtube-playback.js",
+      "sha256": "924d509525a7eee337952261bded0be7492ecb4bc1682c1e8cb4aa61205a9abf"
+    },
+    {
+      "path": "scripts/youtube-player.js",
+      "sha256": "ac2402077322616e08be8bf5537a1791f137a3d4070711a9ae4c5d7c12a9af1e"
+    },
+    {
+      "path": "scripts/youtube-speed-hold.js",
+      "sha256": "08e1a9e9b216d7a34d87fb555853d249d02e80319047d55fb093a205c1637547"
+    },
+    {
+      "path": "sites.json",
+      "sha256": "8b6743e27f8742cb4aac67daedf554034784bb281fedad697ffc3cc11c16021f"
+    },
+    {
+      "path": "styles/base.css",
+      "sha256": "013651e47b05b95abbb233c0a2b54166f86483cd8d1dc477515d258fc1f931fc"
+    },
+    {
+      "path": "styles/generic-nags.css",
+      "sha256": "29f70413206d91751c664c1ab9d4730f2ea176a93d6094a9e47b29b9289d7d67"
+    },
+    {
+      "path": "styles/item-menus.css",
+      "sha256": "9d9a6b35eae0f2d00b88e01acaa5f5fa246ef78bee8e22f1505e529a73b42820"
+    },
+    {
+      "path": "styles/reddit.css",
+      "sha256": "c41afc6842c2c979c797f1514e6b1a44cf4b0c180697b682a18ed2fc3aa77d11"
+    },
+    {
+      "path": "styles/youtube-music.css",
+      "sha256": "1a24d86fafe87e2e28c2b62376fcf76256e844cfff2ebda806ad7033784a4dc0"
+    },
+    {
+      "path": "styles/youtube-player.css",
+      "sha256": "79510d93ac9c89d82075324a632d13a473229445fc4a2b08e4b6d9c7b6fbd592"
+    },
+    {
+      "path": "styles/youtube.css",
+      "sha256": "3fa45d892e746e6be344f45672323ad5e34f6e531d6cb479cc71e6afc961d39d"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+/* The native player's watch page: no YouTube header (the native bar replaces it), video pinned at the top. */
+ytm-mobile-topbar-renderer { display: none !important; }
+ytm-app { padding-top: 0 !important; }
+#player-container-id.sticky-player { top: 0 !important; }
+
+/* The loading skeleton's placeholder header is white until YouTube's dark theme applies: a white band under our bar. */
+header.ghost-header { display: none !important; }
+
+/* The related videos' chip row (All, From <channel>, …) scrolls with the list instead of sticking under the video. */
+.related-chips-slot-wrapper, ytm-related-chip-cloud-renderer,
+ytm-single-column-watch-next-results-renderer ytm-chip-cloud-renderer,
+ytm-single-column-watch-next-results-renderer [class*="chip-cloud"] {
+  position: relative !important;
+  top: auto !important;
+  z-index: 0 !important;
+}
+/* The pinned video stays above everything that scrolls under it. */
+#player-container-id.sticky-player { z-index: 10 !important; }
+
+/* Hide Recommendations (setting): related videos under the player. The Home feed's tab is removed by the app. */
+html.abt-no-recs ytm-item-section-renderer[section-identifier="related-items"],
+html.abt-no-recs ytm-single-column-watch-next-results-renderer ytm-reel-shelf-renderer { display: none !important; }
+
+/* The app draws its own player controls over the video (PlayerControlsOverlay; player-controls.js sends it the taps
+   and state): YouTube's control layer, its seek ripple and the thin bar it leaves when the controls hide all go.
+   The hidden buttons still work when the app presses them. */
+#player-control-overlay, ytw-player-seek-overlay, player-user-edu-tooltip,
+#player-container-id yt-progress-bar { display: none !important; }
+/* The app draws its own like / dislike / share / save / subscribe row in the same place; YouTube's keeps its
+   space (and works when the app presses it) but isn't shown. */
+ytm-slim-video-action-bar-renderer { visibility: hidden !important; }
+
+/* YouTube's settings sheet while player-controls.js reads or presses it for the app's ⋯ menu: invisible, and
+   touches go past it to the player (its own presses still work). */
+html.abt-sheet-hidden ytw-scrim,
+html.abt-sheet-hidden .ytSpecBottomSheetLayoutHost,
+html.abt-sheet-hidden bottom-sheet-container,
+html.abt-sheet-hidden ytm-bottom-sheet-renderer { opacity: 0 !important; pointer-events: none !important; }
+
+/* Comments, description and chapters panels open right under the video and fill everything below it, like the
+   YouTube app (YouTube leaves the title row showing above them). The video is always 16:9 at the full width. */
+ytm-engagement-panel {
+  top: calc(100vw * 9 / 16) !important;
+  bottom: 0 !important;
+  height: auto !important;
+}

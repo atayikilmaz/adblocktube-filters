@@ -1,0 +1,50 @@
+[
+ {
+  "trigger": {
+   "url-filter": "^https?://([^/]+\\.)?youtube\\.com/pagead/"
+  },
+  "action": {
+   "type": "block"
+  }
+ },
+ {
+  "trigger": {
+   "url-filter": "^https?://([^/]+\\.)?youtube\\.com/api/stats/ads"
+  },
+  "action": {
+   "type": "block"
+  }
+ },
+ {
+  "trigger": {
+   "url-filter": "^https?://([^/]+\\.)?youtube\\.com/ptracking"
+  },
+  "action": {
+   "type": "block"
+  }
+ },
+ {
+  "trigger": {
+   "url-filter": "^https?://([^/]+\\.)?youtube\\.com/get_midroll_"
+  },
+  "action": {
+   "type": "block"
+  }
+ },
+ {
+  "trigger": {
+   "url-filter": "^https?://([^/]+\\.)?youtube\\.com/youtubei/v1/log_event"
+  },
+  "action": {
+   "type": "block"
+  }
+ },
+ {
+  "trigger": {
+   "url-filter": "^https?://([^/]+\\.)?youtube\\.com/api/stats/qoe\\?.*adformat"
+  },
+  "action": {
+   "type": "block"
+  }
+ }
+]

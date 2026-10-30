@@ -1,0 +1,22 @@
+/* Long-press menus (item-menus.js): the site's own ⋮ menu opens invisibly while the app shows it natively. */
+html.abt-menu-hidden ytw-scrim,
+html.abt-menu-hidden .ytSpecBottomSheetLayoutHost,
+html.abt-menu-hidden bottom-sheet-container,
+html.abt-menu-hidden ytm-bottom-sheet-renderer,
+html.abt-menu-hidden tp-yt-iron-dropdown,
+html.abt-menu-hidden ytmusic-menu-popup-renderer,
+html.abt-menu-hidden tp-yt-iron-overlay-backdrop { opacity: 0 !important; }
+
+/* The ⋮ buttons on items: long-press opens the menu instead (they stay in place for the page's own layout). */
+yt-lockup-view-model button[aria-label="More actions"],
+ytm-shorts-lockup-view-model button[aria-label="More actions"],
+ytm-rich-item-renderer button[aria-label="More actions"],
+ytm-compact-video-renderer ytm-menu-renderer,
+ytm-video-with-context-renderer ytm-menu-renderer,
+ytm-playlist-video-renderer ytm-menu-renderer,
+ytmusic-responsive-list-item-renderer ytmusic-menu-renderer,
+ytmusic-two-row-item-renderer ytmusic-menu-renderer,
+ytmusic-player-queue-item ytmusic-menu-renderer { opacity: 0 !important; pointer-events: none !important; }
+
+/* No browser link previews or image lifting on long-press. */
+a, img { -webkit-touch-callout: none !important; -webkit-user-drag: none !important; }
