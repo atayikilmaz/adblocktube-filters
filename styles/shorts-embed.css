@@ -1,0 +1,13 @@
+/* The app's own Shorts player (shorts-embed.js): only the video, filling the screen as in the YouTube app. The app
+   draws its own title, channel, buttons and progress over it. */
+html, body, #player, .html5-video-player { background: #000 !important; }
+#player-controls, .ytp-chrome-top, .ytp-chrome-bottom, .ytp-gradient-top, .ytp-gradient-bottom, .ytp-watermark,
+.ytp-pause-overlay, .ytp-large-play-button, .ytp-spinner, .ytp-paid-content-overlay, .ytp-ce-element, .iv-branding,
+.ytp-cued-thumbnail-overlay, .ytp-contextmenu, .ytp-impression-link, .ytp-title, .ytp-show-cards-title,
+.ytp-overflow-panel, .ytp-share-panel, .ytp-caption-window-container { display: none !important; }
+/* Still laid out, so the script can tell the app the Short can't play here. */
+.ytp-error { opacity: 0 !important; }
+.html5-video-container, .html5-main-video {
+  width: 100% !important; height: 100% !important; left: 0 !important; top: 0 !important;
+}
+.html5-main-video { object-fit: cover !important; }
