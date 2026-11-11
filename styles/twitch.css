@@ -1,0 +1,6 @@
+/* Twitch (m.twitch.tv): the app's tab bar replaces the site's bottom bar (Home, Browse, Activity, Profile). */
+#root > div[class*="ScTransitionBase"]:has(a[href="/directory"]):has(a[href="/activity"]) { display: none !important; }
+/* "Open app" in the header. */
+a[href*="open_in_app"] { display: none !important; }
+/* A stream's ad break (twitch-ads.js marks it): the picture goes dark while the sound is off. */
+html.abt-twitch-ad video { opacity: 0 !important; }

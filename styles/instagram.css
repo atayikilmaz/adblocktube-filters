@@ -1,0 +1,9 @@
+/* Instagram: the app's tab bar replaces the site's bottom bar (Home, Explore, Reels, Messages, Profile). */
+/* Signed in: the row of five links, and the fixed bar around it. */
+div[data-visualcompletion="ignore-dynamic"]:has(> div a[href="/direct/inbox/"]):has(> div a[href="/reels/"]),
+div[tabindex="-1"]:has(> div > div > div > div[data-visualcompletion="ignore-dynamic"] a[href="/direct/inbox/"]) {
+  display: none !important;
+}
+/* Signed out. */
+div._abpb,
+div:has(> div > div._abpb) { display: none !important; }

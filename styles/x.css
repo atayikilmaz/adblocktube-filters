@@ -1,0 +1,2 @@
+/* X: the app's tab bar replaces the site's bottom bar. */
+[data-testid="BottomBar"] { display: none !important; }
