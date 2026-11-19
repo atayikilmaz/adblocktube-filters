@@ -1,0 +1,5 @@
+/* Reddit: promoted posts. */
+shreddit-ad-post,
+shreddit-comments-page-ad,
+shreddit-sidebar-ad,
+faceplate-tracker[noun="ad"] { display: none !important; }

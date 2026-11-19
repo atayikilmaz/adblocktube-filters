@@ -1,0 +1,3 @@
+/* Native feel for every site: no grey tap flashes, no double-tap zoom delay. */
+* { -webkit-tap-highlight-color: transparent !important; }
+html { touch-action: manipulation; }

@@ -1,0 +1,20 @@
+/* Instagram: the app's tab bar replaces the site's bottom bar (Home, Explore, Reels, Messages, Profile). */
+/* Signed in: the row of five links, and the fixed bar around it. */
+div[data-visualcompletion="ignore-dynamic"]:has(> div a[href="/direct/inbox/"]):has(> div a[href="/reels/"]),
+div[tabindex="-1"]:has(> div > div > div > div[data-visualcompletion="ignore-dynamic"] a[href="/direct/inbox/"]) {
+  display: none !important;
+}
+/* Signed out. */
+div._abpb,
+div:has(> div > div._abpb) { display: none !important; }
+
+/* Sponsored posts in the feed: each carries Instagram's ad redirect link, whatever the language of its "Ad" label. */
+article:has(a[href*="facebook.com/ads/"]),
+article:has(a[href*="/ads/ig_redirect"]) { display: none !important; }
+
+/* Hide Reels (setting): Reels among the feed's posts. The Reels tab is removed by the app. */
+html.abt-no-reels article:has(a[href*="/reel/"]),
+html.abt-no-reels article:has(a[href^="/reels/"]) { display: none !important; }
+
+/* Reels fill the page down to the app's tab bar: Instagram sized them for its own bottom bar, hidden here. */
+html.abt-reels-page main div:has(> div[style*="position: absolute"] video) { height: 100% !important; }

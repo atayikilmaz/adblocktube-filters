@@ -1,0 +1,11 @@
+/* Common "get the app" banners and interstitials across sites. */
+[class*="smart-banner" i],
+[id*="smart-banner" i],
+[class*="app-banner" i],
+[class*="open-in-app" i],
+[class*="OpenInApp"],
+[data-testid="open-in-app-button"],
+shreddit-experience-tree,
+xpromo-app-selector,
+xpromo-nsfw-blocking-container,
+#xpromo-bottom-sheet { display: none !important; }

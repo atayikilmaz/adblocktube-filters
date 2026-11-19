@@ -1,0 +1,202 @@
+/* The native player's watch page: no YouTube header (the native bar replaces it), video pinned at the top. */
+ytm-mobile-topbar-renderer { display: none !important; }
+ytm-app { padding-top: 0 !important; }
+#player-container-id.sticky-player { top: 0 !important; }
+/* The video's width: the whole page, or in the tablet layout below the part left of the related videos. The app
+   lays its video and controls out with the same numbers (PlayerLayout.swift). */
+:root { --abt-video-w: 100vw; }
+/* The video is 16:9 at that width whatever the page's shape. On iPad and iPhone Duo's inner display the page
+   can be wider than tall, and YouTube then shortens the player box (about 48% of the height), leaving the video
+   smaller and off to one side under the app's controls. */
+#player-container-id #player.player-size { padding-bottom: calc(var(--abt-video-w) * 9 / 16) !important; }
+/* Wider than tall (iPhone Duo's inner display in landscape, iPad landscape), YouTube also stops pinning the player
+   (absolute, 48 px down) and shortens the room above the title to about 59% of the height, so the app's 16:9 video
+   covered the title and the subscribe row (18 Nov). Pinned and 16:9 whatever the shape, as on a phone. */
+#player-container-id { position: fixed !important; top: 0 !important; z-index: 10 !important; }
+ytm-watch .player-placeholder.player-size {
+  height: 0 !important;
+  max-height: none !important;
+  padding-bottom: calc(var(--abt-video-w) * 9 / 16) !important;
+}
+
+/* Tablet layout (iPhone Duo's inner display, iPad in landscape: wider than tall, at least 700 × 500): as in
+   YouTube's tablet app, the video, title, buttons and comments on the left and the related videos in a column of
+   their own on the right, where the comments, description and chapters panels open too. With Hide Recommendations
+   on that column would be empty, so the page stays one column. Only for app versions that lay their video out the
+   same way (html.abt-tablet-layout, PlaybackSettings). */
+@media (min-width: 700px) and (min-height: 500px) and (min-aspect-ratio: 1/1) {
+  html.abt-tablet-layout:not(.abt-no-recs) {
+    --abt-side: clamp(300px, 34vw, 420px);
+    --abt-video-w: calc(100vw - var(--abt-side));
+    /* Read by youtube-player.js, which then opens the comments under the video's buttons. */
+    --abt-tablet: 1;
+  }
+  html.abt-tablet-layout:not(.abt-no-recs) #player-container-id { width: var(--abt-video-w) !important; left: 0 !important; right: auto !important; }
+  html.abt-tablet-layout:not(.abt-no-recs) ytm-watch .player-placeholder.player-size { width: var(--abt-video-w) !important; }
+  /* The related videos fill the column on the right, top to bottom, and scroll in it on their own: the page beside
+     them (title, buttons, comments) stays where it is under the video. In the page's flow they were cut off where
+     the left column's content ended, leaving the rest of the screen empty (18 Nov). A watch page that opens already
+     wider than tall can come without the .related-items-container wrapper, the related section a child of its own:
+     it then sat in the left column under the comments and the right column stayed empty (iPhone Duo, 19 Nov), so it
+     is found by its section-identifier too. */
+  html.abt-tablet-layout:not(.abt-no-recs) ytm-single-column-watch-next-results-renderer > :not(.related-items-container, [section-identifier="related-items"]) {
+    width: var(--abt-video-w) !important;
+    box-sizing: border-box !important;
+  }
+  html.abt-tablet-layout:not(.abt-no-recs) ytm-single-column-watch-next-results-renderer > .related-items-container,
+  html.abt-tablet-layout:not(.abt-no-recs) ytm-single-column-watch-next-results-renderer > ytm-item-section-renderer[section-identifier="related-items"] {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: var(--abt-side) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 0 12px calc(var(--abt-bottom-bars, 0px) + 16px) !important;
+    box-sizing: border-box !important;
+    z-index: 1 !important;
+  }
+  /* YouTube sometimes sends its full-bleed thumbnails (.full-bleed-wn-thumbs), edge to edge: in this column they ran
+     right up against the comments and looked laid over them (18 Nov). Inside the column's margins and rounded, like
+     the other kind. */
+  html.abt-tablet-layout:not(.abt-no-recs) .related-items-container .media-item-thumbnail-container,
+  html.abt-tablet-layout:not(.abt-no-recs) .related-items-container ytm-thumbnail-cover,
+  html.abt-tablet-layout:not(.abt-no-recs) [section-identifier="related-items"] .media-item-thumbnail-container,
+  html.abt-tablet-layout:not(.abt-no-recs) [section-identifier="related-items"] ytm-thumbnail-cover {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+}
+
+/* The loading skeleton's placeholder header is white until YouTube's dark theme applies: a white band under our bar. */
+header.ghost-header { display: none !important; }
+
+/* The related videos' chip row (All, From <channel>, …) scrolls with the list instead of sticking under the video. */
+.related-chips-slot-wrapper, ytm-related-chip-cloud-renderer,
+ytm-single-column-watch-next-results-renderer ytm-chip-cloud-renderer,
+ytm-single-column-watch-next-results-renderer [class*="chip-cloud"] {
+  position: relative !important;
+  top: auto !important;
+  z-index: 0 !important;
+}
+/* Signed in, YouTube slides the block holding the title, the action row and the chips up by its (hidden) top bar's
+   48 px whenever the scroll direction flips, so everything under the video jumped up and down while scrolling. */
+.related-chips-slot-wrapper { transform: none !important; transition: none !important; }
+/* Its partner: the related videos' chip row (All, From <channel>, …), which appears only when scrolling back up and
+   was slid up over the comments by those same 48 px. Shown or reflowed, it jumps; it goes. */
+ytm-related-chip-cloud-renderer { display: none !important; }
+/* The pinned video stays above everything that scrolls under it. */
+#player-container-id.sticky-player { z-index: 10 !important; }
+
+/* Hide Recommendations (setting): related videos under the player. The Home feed's tab is removed by the app. */
+html.abt-no-recs ytm-item-section-renderer[section-identifier="related-items"],
+html.abt-no-recs ytm-single-column-watch-next-results-renderer ytm-reel-shelf-renderer { display: none !important; }
+
+/* The app draws its own player controls over the video (PlayerControlsOverlay; player-controls.js sends it the taps
+   and state): YouTube's control layer, its seek ripple and the thin bar it leaves when the controls hide all go.
+   The hidden buttons still work when the app presses them. */
+#player-control-overlay, ytw-player-seek-overlay, player-user-edu-tooltip,
+#player-container-id yt-progress-bar { display: none !important; }
+/* The app draws its own like / dislike / share / save / subscribe row in the same place; YouTube's keeps its
+   space (and works when the app presses it) but isn't shown. */
+ytm-slim-video-action-bar-renderer { visibility: hidden !important; }
+
+/* YouTube's settings sheet while player-controls.js reads or presses it for the app's ⋯ menu: invisible, and
+   touches go past it to the player (its own presses still work). */
+html.abt-sheet-hidden ytw-scrim,
+html.abt-sheet-hidden .ytSpecBottomSheetLayoutHost,
+html.abt-sheet-hidden bottom-sheet-container,
+html.abt-sheet-hidden ytm-bottom-sheet-renderer { opacity: 0 !important; pointer-events: none !important; }
+
+/* Comments, description and chapters panels open right under the video and fill everything below it, like the
+   YouTube app (YouTube leaves the title row showing above them). The video is always 16:9 at the full width. */
+ytm-engagement-panel {
+  top: calc(var(--abt-video-w) * 9 / 16) !important;
+  bottom: 0 !important;
+  height: auto !important;
+}
+/* In the tablet layout they fill the left column under the video at full height, over the title and buttons until
+   closed; the related videos stay beside them. */
+@media (min-width: 700px) and (min-height: 500px) and (min-aspect-ratio: 1/1) {
+  html.abt-tablet-layout:not(.abt-no-recs) ytm-engagement-panel {
+    top: calc(var(--abt-video-w) * 9 / 16) !important;
+    /* Down to the screen's edge (the page runs under the home indicator here, youtube-player.js), over a Mix's
+       "Up next" bar. */
+    bottom: 0 !important;
+    z-index: 20 !important;
+    left: 0 !important;
+    right: auto !important;
+    width: var(--abt-video-w) !important;
+  }
+  /* Its content scrolls inside it: YouTube grew the boxes inside the panel to the comments' whole height (several
+     thousand px), past its foot. More load as it nears the end. */
+  /* YouTube pads the panel itself by the home indicator's height too, which left that much empty under the comments:
+     the scrolling list pads its own end instead (below). */
+  html.abt-tablet-layout:not(.abt-no-recs) ytm-engagement-panel {
+    overflow: hidden !important;
+    padding-bottom: 0 !important;
+  }
+  html.abt-tablet-layout:not(.abt-no-recs) ytm-engagement-panel > ytm-engagement-panel-section-list-renderer,
+  html.abt-tablet-layout:not(.abt-no-recs) ytm-engagement-panel .engagement-panel-section-list-background,
+  html.abt-tablet-layout:not(.abt-no-recs) ytm-engagement-panel .engagement-panel-container {
+    height: 100% !important;
+  }
+  html.abt-tablet-layout:not(.abt-no-recs) ytm-engagement-panel .engagement-panel-container {
+    flex-direction: column !important;
+  }
+  html.abt-tablet-layout:not(.abt-no-recs) ytm-engagement-panel .engagement-panel-content-wrapper {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+    overflow-y: auto !important;
+    padding-bottom: var(--abt-bottom-bars, 0px) !important;
+    box-sizing: border-box !important;
+  }
+  /* A Mix's "Up next" bar: pinned across the whole page's foot it lay over the related videos (18 Nov). In the left
+     column, behind the comments while they're open; the shading YouTube puts behind it isn't needed. */
+  html.abt-tablet-layout:not(.abt-no-recs) .playlist-entrypoint-background-protection {
+    left: 0 !important;
+    right: auto !important;
+    width: var(--abt-video-w) !important;
+    background: none !important;
+  }
+  html.abt-tablet-layout:not(.abt-no-recs) ytm-playlist-panel-entry-point {
+    left: 12px !important;
+    right: auto !important;
+    width: calc(var(--abt-video-w) - 24px) !important;
+    bottom: calc(var(--abt-bottom-bars, 0px) + 12px) !important;
+    box-sizing: border-box !important;
+  }
+  /* YouTube hides the whole watch page under an open panel, which on a phone covers it; here it is beside it. */
+  html.abt-tablet-layout:not(.abt-no-recs) body[engagement-panel-open] ytm-watch { display: block !important; }
+}
+
+/* While a panel fills in (youtube-player.js): placeholder rows over its content (an avatar and two lines each,
+   pulsing), so it appears finished instead of piece by piece. */
+html.abt-panel-loading ytm-engagement-panel .engagement-panel-content-wrapper { position: relative !important; }
+html.abt-panel-loading ytm-engagement-panel .engagement-panel-content-wrapper > * { visibility: hidden !important; }
+html.abt-panel-loading ytm-engagement-panel .engagement-panel-content-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  background-color: var(--yt-spec-base-background, #0f0f0f);
+  background-image:
+    radial-gradient(circle 18px at 34px 38px, rgba(255, 255, 255, 0.1) 97%, transparent 100%),
+    linear-gradient(to bottom, transparent 22px, rgba(255, 255, 255, 0.1) 22px, rgba(255, 255, 255, 0.1) 34px, transparent 34px),
+    linear-gradient(to bottom, transparent 44px, rgba(255, 255, 255, 0.07) 44px, rgba(255, 255, 255, 0.07) 56px, transparent 56px);
+  background-size: 100% 96px, calc(100% - 100px) 96px, 50% 96px;
+  background-position: 0 8px, 68px 8px, 68px 8px;
+  background-repeat: repeat-y;
+  animation: abt-panel-pulse 0.9s ease-in-out infinite alternate;
+}
+@keyframes abt-panel-pulse { from { opacity: 0.55; } to { opacity: 1; } }
+
+/* YouTube's unsubscribe dialog while the app confirms it for the native one. */
+html.abt-quiet-dialog div.dialog-container, html.abt-quiet-dialog ytw-scrim { opacity: 0 !important; }
+
+/* While the app opens "Save to…" through YouTube's More sheet (player-controls.js `save`), no sheet shows until
+   "Save to…" itself is up: the More sheet flashed for a few frames before it. Hidden, not removed: still tappable. */
+html.abt-quiet-sheets bottom-sheet-container { visibility: hidden !important; }
